@@ -11,9 +11,7 @@ WORKDIR /minecraft
 
 USER minecraft
 
-RUN wget ${BASE_URL}/${MODPACK}/${FTB_VERSION}/${SERVER_FILE} \
-    && unzip ${SERVER_FILE} \
-    && rm ${SERVER_FILE}
+RUN wget https://www.curseforge.com/minecraft/modpacks/ftb-sky-odyssey/download/3086759
 RUN chmod u+x FTBInstall.sh ServerStart.sh
 RUN sed -i '2i /bin/sh /minecraft/CheckEula.sh' /minecraft/ServerStart.sh
 RUN /minecraft/FTBInstall.sh
